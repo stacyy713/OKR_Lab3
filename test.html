@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<p id="1">Hello World!!!</p>
+<input type="submit" value="Press me" onclick="ChangeSmth()">
+<h3></h3>
+
+
+<script>
+    function ChangeSmth() {
+        document.getElementById('1').innerHTML = "Bye World!";
+    }
+    localStorage.setItem("NiceJob", "Nice job OLEG");
+    document.querySelector('h3').innerHTML = localStorage.getItem('NiceJob');
+
+   //InnerHTML - свойство , getElementById - метод-->
+
+
+
+</script>
+
+
+
+
+
+<!--<script>-->
+
+<!--    // var str = "каждый охотник желает знать";-->
+<!--    //-->
+<!--    // function capitalize(str) {-->
+<!--    //-->
+<!--    //     return str.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase()})-->
+<!--    //-->
+<!--    // }-->
+<!--    //-->
+<!--    // document.writeln(capitalize(str)); // "Каждый Охотник Желает Знать"-->
+
+<!--// localStorage.setItem('data', 5);-->
+<!--// console.log(localStorage.getItem('data'));-->
+
+<!--    //-->
+<!--    // function handleOnChangeEvent(x){-->
+<!--    //     document.bgColor=x;-->
+<!--    // }-->
+
+<!--</script>-->
+
+<!--<select onchange="handleOnChangeEvent(this.value)">-->
+<!--    <option value="">Select a color</option>-->
+<!--    <option value="red">Red</option>-->
+<!--    <option value="beige">Beige</option>-->
+<!--    <option value="green">Green</option>-->
+<!--</select>-->
+</body>
+</html>

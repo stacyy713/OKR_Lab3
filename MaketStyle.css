@@ -1,0 +1,61 @@
+body{
+    display: grid;
+    grid-template-areas:
+	"header header header"
+	"myContent1 myContent2 myContent4"
+	"myContent1 myContent3 myContent4"
+	"myContent5 myContent5 myContent4"
+	"footer footer footer";
+    grid-template-rows: 0.7fr 0.5fr 1fr 0.5fr 0.7fr;
+    grid-template-columns: 1fr 4fr 2fr;
+    grid-gap: 0px;
+    /*height: 100%;*/
+    margin: 0;
+
+}
+table{
+    text-align: center;
+    margin: 2%;
+}
+header, footer, div{
+    padding: 40px;
+}
+#pageHeader {
+    grid-area: header;
+    background: #87CEEB;
+}
+#Content1Inside{
+    grid-area: myContent1;
+    background: #FFF5EE;
+}
+#Content2Inside{
+    grid-area: myContent2;
+    background: #E6E6FA;
+    padding-top: 1%;
+}
+#Content3Inside{
+    grid-area: myContent3;
+    background: #E0FFFF;
+    padding: 1%;
+}
+#Content4Inside {
+    grid-area: myContent4;
+    background: #FFF5EE;
+    text-align: center;
+    padding-top: 30%;
+}
+#Content5Inside {
+    grid-area: myContent5;
+    background: #E6E6FA;
+    text-align: center;
+}
+#pageFooter {
+    grid-area: footer;
+    background: #87CEEB;
+    text-align: left;
+}
+h2{
+    margin: 0;
+
+}
+

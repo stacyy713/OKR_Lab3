@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="MaketStyle.css">
+    <title>Title</title>
+</head>
+<body>
+<header id="pageHeader">
+    <table align="right" height="50" width="150">
+        <tr bgcolor="white">
+            <td><strong><font face="Arial">Подорож Європою</font></strong></td>
+        </tr>
+    </table>
+    <div id="pageHeader1">
+    <h2><font color="#4B0082" face="Arial">Крема, Італія</font></h2>
+    </div>
+    <input type='text' id='userIn1' value=''/><input type="button" onclick="titlee()" value="Змінити"/><input type="button" onclick="cancelFunc()" value="Відмінити зміни"/>
+
+</header>
+<div id="Content1Inside">
+    <div id="Content1">
+    <h3><font face="Arial">Меню:</font></h3>
+
+    <!-- Ordered List -->
+    <ol>
+        <li><a href="Maket.html">Крема</a></li>
+        <li><a href="Marsel.html">Марсель</a></li>
+        <li><a href="Dresden.html">Дрезден</a></li>
+        <li><a href="Prague.html">Прага</a></li>
+    </ol>
+    </div>
+    <input type='text' id='userInput1' value=''/><input type="button" onclick="func1()" value="Змінити"/><input type="button" onclick="cancelChanges1()" value="Відмінити зміни"/>
+</div>
+<div id="Content2Inside">
+
+    <div id="Content2">
+    <p><strong>Крема</strong> - містечко, розташоване в центрі Ломбардії, в провінції Кремона, приблизно в 40 км на схід від Мілана.</p>
+    </div>
+    <input type='text' id='userInput' value=''/><input type="button" onclick="func()" value="Змінити"/><input type="button" onclick="cancelChanges()" value="Відмінити зміни"/>
+
+</div>
+
+<div id="Content3Inside">
+    <div id="Content3">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/ac/f0/f3/photo1jpg.jpg?w=1000&h=600&s=1" width="250" height="150">
+    &nbsp; &nbsp; &nbsp;
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Palazzo-comunale-2017.jpg" width="250" height="150">
+    </div>
+
+    <select id="slt" onchange="change_color()">
+        <option value="">Select the color</option>
+        <option value="#8FBC8F">Olive</option>
+        <option value="#87CEFA">Blue</option>
+        <option value="#DDA0DD">Rosy</option>
+    </select>
+    <br><input type='text' id='userInput3' value=''/><input type="button" onclick="func3()" value="Змінити"/><input type="button" onclick="cancelChanges3()" value="Відмінити зміни"/>
+
+</div>
+
+
+
+<div id="Content4Inside">
+
+    <form>
+        <input type="radio" id="radioButton" onclick="MyOnclick()">
+    </form>
+
+    <div id="Text">
+        <p>В історичних документах місто вперше починає фігурувати <u>в 11 столітті</u>. У той період часу воно знаходилося під керівництвом тосканської королеви Матильди.
+        <br>Ця Матильда в 1098 року вирішила подарувати його єпископу Кремони і місто з того часу стало частиною Ломбардії.</p>
+    </div>
+
+    <input type='text' id='userInput4' value=''/><br><input type="button" onclick="func4()" value="Змінити"/><br><input type="button" onclick="cancelChanges4()" value="Відмінити зміни"/>
+
+</div>
+
+
+<div id="Content5Inside">
+    <div id="Content5">
+        Історія Креми тісно пов'язана з вторгненням в 6 столітті на територію Італії племені ломбардів.
+        <br>Назва «Крема» з ломбардного означає «невеликий пагорб».
+    </div>
+    <input type='text' id='userInput5' value=''/><input type="button" onclick="func5()" value="Змінити"/><input type="button" onclick="cancelChanges5()" value="Відмінити зміни"/>
+</div>
+
+
+<footer id="pageFooter">
+    <table align="right" height="50" width="150">
+        <tr bgcolor="white" align="right">
+            <td><strong><font face="Arial">Подорож Європою</font></strong></td>
+        </tr>
+    </table>
+    <div id="footeer">
+    Цікава частина старого міста Крема розташована навколо площі Piazza del Duomo, навколо якої вишикувалися численні релігійні та світські будівлі, що стали символами міста. Серед них - кафедральний собор, преторіанский і муніципальний палаци і ренесансний "Torrazzo".
+
+    </div>
+    <input type='text' id='userInput6' value=''/><input type="button" onclick="func6()" value="Змінити"/><input type="button" onclick="cancelChanges6()" value="Відмінити зміни"/>
+</footer>
+
+
+
+<script>
+    //Task4
+    function radioCl(str) {
+        return str.replace(/(^|\s)\S/g, function(a) {
+            return a.toUpperCase()})
+    }
+
+
+    function MyOnclick(){
+        let div = document.getElementById("Text");
+        let newStr = radioCl(div.innerText);
+        div.innerText = newStr;
+        //localStorage.removeItem('LocalNewStr');
+        localStorage.setItem('LocalNewStr', newStr);
+    }
+    document.querySelector('#Text').innerHTML = localStorage.getItem('LocalNewStr');
+
+
+    //Task5
+    let slt = document.getElementById('slt');
+    let content3 = document.getElementById('Content3Inside');
+    function change_color(){
+        content3.style.background = slt.value;
+        localStorage.setItem('sltColor', slt.value);
+    }
+
+</script>
+
+
+<script>
+    //LocalStorage for Header
+
+    localStorage.setItem('pageHeader1', pageHeader1.innerHTML);
+
+    function titlee(){
+        let ui1 = document.getElementById('userIn1').value;
+        document.getElementById('pageHeader1').innerHTML = ui1;
+        localStorage.setItem('NewTitle', ui1);
+    }
+    document.querySelector('#pageHeader1').innerHTML = localStorage.getItem('NewTitle');
+
+    function cancelFunc(){
+        localStorage.removeItem('NewTitle');
+        pageHeader1.innerHTML = localStorage.getItem('pageHeader1');
+        localStorage.setItem('NewTitle', pageHeader1.innerHTML);
+    }
+    document.querySelector('#pageHeader1').innerHTML = localStorage.getItem('NewTitle');
+</script>
+
+
+<script>
+    //LocalStorage for Content1
+
+    localStorage.setItem('Content1', Content1.innerHTML);
+
+    function func1(){
+        let userIn1 = document.getElementById('userInput1').value;
+        document.getElementById('Content1').innerHTML = userIn1;
+        localStorage.setItem('NewValue1', userIn1);
+    }
+    document.querySelector('#Content1').innerHTML = localStorage.getItem('NewValue1');
+
+    function cancelChanges1(){
+        localStorage.removeItem('NewValue1');
+        Content1.innerHTML = localStorage.getItem('Content1');
+        localStorage.setItem('NewValue1', Content1.innerHTML);
+    }
+    document.querySelector('#Content1').innerHTML = localStorage.getItem('NewValue1');
+
+</script>
+
+
+<script>
+    //LocalStorage for Content2
+
+    localStorage.setItem('Content2', Content2.innerHTML);
+
+    function func(){
+        let userIn = document.getElementById('userInput').value;
+        document.getElementById('Content2').innerHTML = userIn;
+        localStorage.setItem('NewValue', userIn);
+    }
+    document.querySelector('#Content2').innerHTML = localStorage.getItem('NewValue');
+
+    function cancelChanges(){
+        localStorage.removeItem('NewValue');
+        Content2.innerHTML = localStorage.getItem('Content2');
+        localStorage.setItem('NewValue', Content2.innerHTML);
+    }
+    document.querySelector('#Content2').innerHTML = localStorage.getItem('NewValue');
+</script>
+
+
+<script>
+    //LocalStorage for Content3
+
+    localStorage.setItem('Content3', Content3.innerHTML);
+
+    function func3(){
+        let userIn3 = document.getElementById('userInput3').value;
+        document.getElementById('Content3').innerHTML = userIn3;
+        localStorage.setItem('NewValue3', userIn3);
+    }
+    document.querySelector('#Content3').innerHTML = localStorage.getItem('NewValue3');
+    document.querySelector('#Content3Inside').style.background = localStorage.getItem('sltColor')
+
+    function cancelChanges3(){
+        localStorage.removeItem('NewValue3');
+        Content3.innerHTML = localStorage.getItem('Content3');
+        localStorage.setItem('NewValue3', Content3.innerHTML);
+
+        document.querySelector('#Content3Inside').style.background = '#E0FFFF';
+        localStorage.setItem('sltColor', '#E0FFFF');
+    }
+    document.querySelector('#Content3').innerHTML = localStorage.getItem('NewValue3');
+</script>
+
+
+<script>
+    //LocalStorage for Content4
+
+    function func4(){
+        let userIn4 = document.getElementById('userInput4').value;
+        document.getElementById('Text').innerHTML = userIn4;
+        localStorage.setItem('LocalNew', userIn4);
+    }
+    document.querySelector('#Text').innerHTML = localStorage.getItem('LocalNew');
+
+    function cancelChanges4(){
+        localStorage.removeItem('LocalNew');
+        Text.innerHTML = localStorage.getItem('LocalNewStr');
+        localStorage.setItem('LocalNew', Text.innerHTML);
+    }
+    document.querySelector('#Text').innerHTML = localStorage.getItem('LocalNew');
+</script>
+
+
+<script>
+    //LocalStorage for Content5
+
+    localStorage.setItem('Content5', Content5.innerHTML);
+
+    function func5(){
+        let userIn5 = document.getElementById('userInput5').value;
+        document.getElementById('Content5').innerHTML = userIn5;
+        localStorage.setItem('NewValue5', userIn5);
+    }
+    document.querySelector('#Content5').innerHTML = localStorage.getItem('NewValue5');
+
+    function cancelChanges5(){
+        localStorage.removeItem('NewValue5');
+        Content5.innerHTML = localStorage.getItem('Content5');
+        localStorage.setItem('NewValue5', Content5.innerHTML);
+    }
+    document.querySelector('#Content5').innerHTML = localStorage.getItem('NewValue5');
+</script>
+
+
+<script>
+    //LocalStorage for Footer
+
+    localStorage.setItem('footeer', footeer.innerHTML);
+
+    function func6(){
+        let userIn6 = document.getElementById('userInput6').value;
+        document.getElementById('footeer').innerHTML = userIn6;
+        localStorage.setItem('NewValue6', userIn6);
+    }
+    document.querySelector('#footeer').innerHTML = localStorage.getItem('NewValue6');
+
+    function cancelChanges6(){
+        localStorage.removeItem('NewValue6');
+        footeer.innerHTML = localStorage.getItem('footeer');
+        localStorage.setItem('NewValue6', footeer.innerHTML);
+    }
+    document.querySelector('#footeer').innerHTML = localStorage.getItem('NewValue6');
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" type="text/css" href="MaketStyle.css">-->
+<!--    <title>Title</title>-->
+<!--    <script>-->
+
+<!--       function radioCl(str) {-->
+<!--           return str.replace(/(^|\s)\S/g, function(a) {-->
+<!--               return a.toUpperCase()})-->
+<!--       }-->
+
+<!--       function MyOnclick(){-->
+<!--           let div = document.getElementById("Text");-->
+<!--           let newStr = radioCl(div.innerText);-->
+<!--           div.innerText = newStr;-->
+<!--           localStorage.setItem('LocalNewStr', newStr);-->
+
+<!--       }-->
+<!--       if(localStorage.getItem('LocalNewStr') !== null){-->
+<!--           let div = document.getElementById("Text");-->
+<!--           let finalText = localStorage.getItem('LocalNewStr');-->
+<!--           div.innerText = finalText;-->
+<!--       }-->
+
+
+
+<!--    </script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<header id="pageHeader">-->
+<!--    <table align="right" height="50" width="150">-->
+<!--        <tr bgcolor="white">-->
+<!--            <td><strong><font face="Arial">Подорож Європою</font></strong></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--    <h2><font color="#4B0082" face="Arial">Крема, Італія</font></h2>-->
+<!--</header>-->
+<!--<div id="Content1">-->
+<!--    <h3><font face="Arial">Меню:</font></h3>-->
+
+<!--    &lt;!&ndash; Ordered List &ndash;&gt;-->
+<!--    <ol>-->
+<!--        <li><a href="">Крема</a></li>-->
+<!--        <li><a href="Marsel.html">Марсель</a></li>-->
+<!--        <li><a href="Dresden.html">Дрезден</a></li>-->
+<!--        <li><a href="Prague.html">Прага</a></li>-->
+<!--    </ol>-->
+<!--</div>-->
+<!--<div id="Content2">-->
+<!--    <p><strong>Крема</strong> - містечко, розташоване в центрі Ломбардії, в провінції Кремона, приблизно в 40 км на схід від Мілана.</p>-->
+<!--    &lt;!&ndash; <p>В історичних документах місто вперше починає фігурувати <u>в 11 столітті</u>. У той період часу воно знаходилося під керівництвом тосканської королеви Матильди.</p>-->
+<!--    <p>Ця Матильда в 1098 року вирішила подарувати його єпископу Кремони і місто з того часу стало частиною Ломбардії.</p>-->
+<!--    <p>В історичних документах місто вперше починає фігурувати <u>в 11 столітті</u>. У той період часу воно знаходилося під керівництвом тосканської королеви Матильди.</p>-->
+<!--    <p>Ця Матильда в 1098 року вирішила подарувати його єпископу Кремони і місто з того часу стало частиною Ломбардії.</p>-->
+<!--     &ndash;&gt;-->
+
+<!--</div>-->
+<!--<div id="Content3">-->
+<!--    &nbsp; &nbsp;-->
+<!--    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/ac/f0/f3/photo1jpg.jpg?w=1000&h=600&s=1" width="250" height="150">-->
+<!--    &nbsp; &nbsp; &nbsp;-->
+<!--    <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Palazzo-comunale-2017.jpg" width="250" height="150">-->
+
+<!--</div>-->
+
+
+
+<!--<div id="Content4Inside">-->
+
+<!--    <form>-->
+<!--        <input type="radio" id="radioButton" onclick="MyOnclick()">-->
+<!--    </form>-->
+
+<!--    <div id="Text">-->
+<!--    <p>В історичних документах місто вперше починає фігурувати <u>в 11 столітті</u>. У той період часу воно знаходилося під керівництвом тосканської королеви Матильди.</p>-->
+<!--    <p>Ця Матильда в 1098 року вирішила подарувати його єпископу Кремони і місто з того часу стало частиною Ломбардії.</p>-->
+<!--    &lt;!&ndash; столітті</u>. У той період часу воно знаходилося під керівництвом тосканської королеви Матильди.</p>-->
+<!--   <p>Ця Матильда в 1098 року вирішила подарувати його єпископу Кремони і місто з того часу стало частиною Ломбардії.</p>-->
+<!--   <p>В історичних документах місто вперше починає фігурувати <u>в 11 столітті</u>. У той період часу воно знаходилося під керівництвом тосканської королеви Матильди.</p>-->
+<!--   <p>Ця Матильда в 1098 року вирішила подарувати його єпископу Кремони і місто з того часу стало частиною Ломбардії.</p>-->
+<!--   <p>В історичних документах місто вперше починає фігурувати <u>в 11 столітті</u>. У той період часу воно знаходилося під керівництвом тосканської королеви Матильди.</p>-->
+<!--   <p>Ця Матильда в 1098 року вирішила подарувати його єпископу Кремони і місто з того часу стало частиною Ломбардії.</p>-->
+<!--   <p>В історичних документах місто вперше починає фігурувати <u>в 11 столітті</u>. У той період часу воно знаходилося під керівництвом тосканської королеви Матильди.</p>-->
+<!--   <p>Ця Матильда в 1098 року вирішила подарувати його єпископу Кремони і місто з того часу стало частиною Ломбардії.</p>-->
+<!--   <p>Ця Матильда в 1098 року вирішила подарувати його єпископу Кремони і місто з того часу стало частиною Ломбардії.</p>-->
+<!--   <p>В історичних документах місто вперше починає фігурувати <u>в 11 столітті</u>. У той період часу воно знаходилося під керівництвом тосканської королеви Матильди.</p>-->
+<!--   <p>Ця Матильда в 1098 року вирішила подарувати його єпископу Кремони і місто з того часу стало частиною Ломбардії.</p> &ndash;&gt;-->
+<!--</div>-->
+<!--</div>-->
+
+
+<!--<div id="Content5">-->
+<!--        <p>-->
+<!--        Історія Креми тісно пов'язана з вторгненням в 6 столітті на територію Італії племені ломбардів.-->
+<!--        <br>Назва «Крема» з ломбардного означає «невеликий пагорб».</p>-->
+<!--</div>-->
+<!--<footer id="pageFooter">-->
+<!--    <table align="right" height="50" width="150">-->
+<!--        <tr bgcolor="white" align="right">-->
+<!--            <td><strong><font face="Arial">Подорож Європою</font></strong></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--    <p>Цікава частина старого міста Крема розташована навколо площі Piazza del Duomo, навколо якої вишикувалися численні релігійні та світські будівлі, що стали символами міста. Серед них - кафедральний собор, преторіанский і муніципальний палаци і ренесансний "Torrazzo".</p>-->
+<!--</footer>-->
+<!--</body>-->
+<!--</html>-->

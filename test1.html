@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>Hello my World</p>
+
+<input type='text' id='userInput' value=''/><input type="submit" value="Press the button" onclick="f()"><input type="submit" value="To the start" onclick="cancel()">
+<script>
+    function f(){
+        let a = document.getElementById('userInput').value;
+        document.getElementsByTagName('p').innerHTML = a;
+        localStorage.setItem('NewItem', a);
+        // document.querySelector('h3').innerHTML = localStorage.getItem('NewItem');
+    }
+    document.querySelector('p').innerHTML = localStorage.getItem('NewItem');
+
+    // function cancel(){
+    //     localStorage.removeItem('NewItem');
+    //     a.innerHTML = localStorage.getItem('NewItem');
+    // }
+
+</script>
+</body>
+</html>

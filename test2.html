@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="info">
+        <div id='mytext'>Этот сайт посявящен нескольким моим любимым зарубежным и русским рок-группам.</div>
+</div>
+<!--    <div class="box">-->
+<!--        <p class="text-in-box" id="text__inbox"></p>-->
+<!--    </div>-->
+
+    <input type="text" class="text-input" id="text__input"><input type="submit" onclick="myOnclick()" value="Цвет">
+
+    <script>
+        function myOnclick() {
+            let div = document.getElementById('mytext');
+            let f1 = document.getElementById('text__input').value;
+            div.style.color = f1;
+            localStorage.setItem('7', f1);
+        }
+    document.querySelector('#mytext').style.color = localStorage.getItem('7');
+    </script>
+</body>
+</html>
